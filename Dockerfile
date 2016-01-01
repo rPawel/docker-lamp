@@ -9,8 +9,8 @@ RUN apt-get -q -y update \
   php5-mcrypt php5-gd php5-mysql php5-curl php5-json php5-intl \
   php5-memcached \
   imagemagick graphicsmagick graphicsmagick-libmagick-dev-compat php5-imagick trimage \
-  exim4 git subversion
- && rm -rf /etc/php5/fpm/pool.d/* \
+  exim4 git subversion \
+ && rm -rf /etc/php5/fpm/pool.d/*
 
 # Config
 ADD ./config /etc/
