@@ -24,3 +24,14 @@ RUN update-exim4.conf \
  && mkdir -p /var/log/supervisor \
  && chown www-data: -R /var/lib/apache2/fastcgi \
  && DEBIAN_FRONTEND=newt
+
+ADD build.sh /
+ADD run.sh /
+
+RUN chmod +x /build.sh /run.sh \
+ && bash /build.sh && rm -f /build.sh
+
+# PORTS
+EXPOSE 80
+
+ENTRYPOINT ["/run.sh"]
